@@ -9,6 +9,17 @@ Terraform module for deploying Kubernetes [Cluster Autoscaler](https://github.co
 - There are pods that failed to run in the cluster due to insufficient resources.
 - There are nodes in the cluster that have been underutilized for an extended period of time and their pods can be placed on other existing nodes.
 
+## Prerequisites
+
+Before deploying the Cluster Autoscaler, you must meet the following prerequisites:
+- Have an existing Kubernetes cluster.
+- Node groups with Auto Scaling groups tags – The Cluster Autoscaler requires the following tags on your Auto Scaling groups so that they can be auto-discovered. For more information, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the Amazon EC2 User Guide for Linux Instances.
+
+| Key                                       | Value |
+|-------------------------------------------|-------|
+| k8s.io/cluster-autoscaler/`<cluster-name>`  | owned |
+| k8s.io/cluster-autoscaler/enabled         | TRUE  |
+
 ## Usage
 
 ```
@@ -23,6 +34,12 @@ module "cluster_autoscaler" {
   aws_region                       = data.aws_region.current.name
 }
 ```
+
+## Auto-Discovery Setup
+
+Auto-Discovery Setup is the preferred method to configure Cluster Autoscaler.
+
+To enable this, provide the --node-group-auto-discovery flag as an argument whose value is a list of tag keys that should be looked for. For example, --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/<cluster-name> will find the ASGs where those tag keys exist. It does not matter what value the tags have.
 
 <!--- BEGIN_TF_DOCS --->
 
