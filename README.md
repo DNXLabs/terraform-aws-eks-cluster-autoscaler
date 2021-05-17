@@ -49,16 +49,16 @@ To enable this, provide the --node-group-auto-discovery flag as an argument whos
 |------|---------|
 | terraform | >= 0.13 |
 | aws | >= 3.13, < 4.0 |
-| helm | >= 1.0, < 1.4.0 |
-| kubernetes | >= 1.10.0 |
+| helm | >= 1.0, < 3.0 |
+| kubernetes | >= 1.10.0, < 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | aws | >= 3.13, < 4.0 |
-| helm | >= 1.0, < 1.4.0 |
-| kubernetes | >= 1.10.0 |
+| helm | >= 1.0, < 3.0 |
+| kubernetes | >= 1.10.0, < 3.0.0 |
 
 ## Inputs
 
@@ -73,7 +73,7 @@ To enable this, provide the --node-group-auto-discovery flag as an argument whos
 | helm\_chart\_name | Cluster Autoscaler Helm chart name to be installed | `string` | `"cluster-autoscaler"` | no |
 | helm\_chart\_release\_name | Helm release name | `string` | `"cluster-autoscaler"` | no |
 | helm\_chart\_repo | Cluster Autoscaler repository name. | `string` | `"https://kubernetes.github.io/autoscaler"` | no |
-| helm\_chart\_version | Cluster Autoscaler Helm chart version. | `string` | `"9.3.0"` | no |
+| helm\_chart\_version | Cluster Autoscaler Helm chart version. | `string` | `"9.9.2"` | no |
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
 | namespace | Kubernetes namespace to deploy Cluster Autoscaler Helm chart. | `string` | `"kube-system"` | no |
 | service\_account\_name | Cluster Autoscaler service account name | `string` | `"cluster-autoscaler"` | no |
