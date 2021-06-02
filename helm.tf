@@ -27,13 +27,8 @@ resource "helm_release" "cluster_autoscaler" {
     value = aws_iam_role.kubernetes_cluster_autoscaler[0].arn
   }
 
-  dynamic "set" {
-    for_each = var.settings
-
-    content {
-      name  = set.key
-      value = set.value
-    }
-  }
+  values = [
+    yamlencode(var.settings)
+  ]
 
 }
