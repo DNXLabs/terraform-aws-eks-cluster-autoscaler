@@ -77,7 +77,7 @@ To enable this, provide the --node-group-auto-discovery flag as an argument whos
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
 | namespace | Kubernetes namespace to deploy Cluster Autoscaler Helm chart. | `string` | `"kube-system"` | no |
 | service\_account\_name | Cluster Autoscaler service account name | `string` | `"cluster-autoscaler"` | no |
-| settings | Additional settings which will be passed to the Helm chart values. | `map(any)` | `{}` | no |
+| settings | Additional settings which will be passed to the Helm chart values. | `map` | `{}` | no |
 
 ## Outputs
 
