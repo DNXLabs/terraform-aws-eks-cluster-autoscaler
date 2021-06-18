@@ -70,6 +70,7 @@ To enable this, provide the --node-group-auto-discovery flag as an argument whos
 | cluster\_name | The name of the cluster | `string` | n/a | yes |
 | create\_namespace | Whether to create Kubernetes namespace with name defined by `namespace`. | `bool` | `true` | no |
 | enabled | Variable indicating whether deployment is enabled. | `bool` | `true` | no |
+| fullname\_override | Helm fullnameOverride | `string` | `"aws-cluster-autoscaler"` | no |
 | helm\_chart\_name | Cluster Autoscaler Helm chart name to be installed | `string` | `"cluster-autoscaler"` | no |
 | helm\_chart\_release\_name | Helm release name | `string` | `"cluster-autoscaler"` | no |
 | helm\_chart\_repo | Cluster Autoscaler repository name. | `string` | `"https://kubernetes.github.io/autoscaler"` | no |
