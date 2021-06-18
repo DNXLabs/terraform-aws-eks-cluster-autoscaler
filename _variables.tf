@@ -42,6 +42,12 @@ variable "helm_chart_release_name" {
   description = "Helm release name"
 }
 
+variable "fullname_override" {
+  type        = string
+  default     = "aws-cluster-autoscaler"
+  description = "Helm fullnameOverride"
+}
+
 variable "helm_chart_version" {
   type        = string
   default     = "9.9.2"

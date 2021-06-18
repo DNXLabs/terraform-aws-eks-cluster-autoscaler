@@ -8,6 +8,11 @@ resource "helm_release" "cluster_autoscaler" {
   namespace  = var.namespace
 
   set {
+    name  = "fullnameOverride"
+    value = var.fullname_override
+  }
+
+  set {
     name  = "autoDiscovery.clusterName"
     value = var.cluster_name
   }
